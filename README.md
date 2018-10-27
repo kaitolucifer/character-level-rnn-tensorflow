@@ -20,4 +20,4 @@
 * TensorFlow >= 1.6
 
 ### Usage
-* Use <code>train.py</code> to train a Character-Level RNN with **Anna Karenina**, and use <code>test.py</code> to generate some texts.
+* Use <code>train.py</code> to train a Character-Level RNN with *Anna Karenina*, and use <code>test.py</code> to generate some texts.
