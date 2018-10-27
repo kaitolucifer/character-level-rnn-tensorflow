@@ -48,14 +48,14 @@ def build_lstm(lstm_size, num_layers, batch_size, keep_prob):
     LSTM層の構築
         
     keep_prob
-    lstm_size: lstm隐层中结点数目
-    num_layers: lstm的隐层数目
+    lstm_size: LSTM隠れ状態サイズ
+    num_layers: LSTMセル数
     batch_size: batch_size
 
     '''
     lstm_cells = []
     for _ in range(num_layers):
-        # ベーシックLSTMセルをスタック化
+        # ベーシックLSTMセル
         lstm = tf.nn.rnn_cell.LSTMCell(lstm_size)
         # LSTMセルにDropoutを適用
         drop = tf.nn.rnn_cell.DropoutWrapper(lstm, output_keep_prob=keep_prob)
@@ -77,7 +77,6 @@ def build_output(lstm_output, in_size, out_size):
     '''
 
     seq_output = tf.concat(lstm_output, 1)
-    # reshape
     x = tf.reshape(seq_output, [-1, in_size])
     
     # LSTM層とSoftmax層を全結合
